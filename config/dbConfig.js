@@ -3,6 +3,6 @@ module.exports = {
     host : 'localhost',
     user: 'root',
     password: '',
-    database:'smaple_squelize_api_db',
+    database:'mysampleDB',
     dialect: 'mysql'
 }
