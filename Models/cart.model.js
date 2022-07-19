@@ -20,4 +20,4 @@ const Cart = db.sequelize.define('Cart', {
     updatedAt: false
 });
 
-module.exports = Cart
+module.exports = {Cart}

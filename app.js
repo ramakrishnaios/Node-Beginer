@@ -9,15 +9,12 @@ const { json } = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
-const user = require('./router/user.router')
-app.use('/user', user)
+const {userRouter} = require('./router/userRouter.router')
+const {addItemCartRouter} = require('./router/addItemCart.router')
 
+app.use('/userRouter', userRouter)
+app.use('/addItemCartRouter', addItemCartRouter)
 
-app.post('/api/addItemCart', async (req, resp) => {
-    let cartItem = Cart.build({ product_name: req.body.product_name, quantity: req.body.quantity, user_id: req.body.user_id })
-     await cartItem.save();
-     resp.send(cartItem);
-});
 app.get('/api/getCartItems', async (req, resp) => {
     let cartItems = await Cart.findAll({
         where: {
